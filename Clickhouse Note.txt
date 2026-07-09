@@ -1,0 +1,12 @@
+Columnnar-
+By Default indext (Part)
+Sharding
+kafka
+
+/etc/clickhouse-server# ----> Configuration File on this location
+var/lib/clickhouse#
+
+Data types
+-Array
+-Tuple
+-MAP
