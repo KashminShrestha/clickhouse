@@ -194,14 +194,16 @@ This avoids placing analytical workloads on the OLTP database.
 ## Step 1: Create a Local MergeTree Table
 
 ```sql
-CREATE TABLE clickhouse_users (
-    user_id Int32,
+CREATE TABLE clickhouse_users
+(
+    id Int32,
     name String,
+    email String,
     age Int32,
-    country String
+    created_at DateTime
 )
 ENGINE = MergeTree()
-ORDER BY user_id;
+ORDER BY (id, email);
 ```
 
 ---
@@ -211,7 +213,7 @@ ORDER BY user_id;
 ```sql
 INSERT INTO clickhouse_users
 SELECT *
-FROM postgres_users_data_1;
+FROM postgres_users;
 ```
 
 ---
