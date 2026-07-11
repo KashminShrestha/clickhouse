@@ -115,17 +115,22 @@ ClickHouse provides two methods for interacting with PostgreSQL:
 This creates a ClickHouse table that directly maps to a PostgreSQL table.
 
 ```sql
-CREATE TABLE postgres_users_data_1 (
+CREATE TABLE postgres_users
+(
     id Int32,
-    name String
+    name String,
+    email String,
+    age Int32,
+    created_at DateTime
 )
 ENGINE = PostgreSQL(
     'postgres:5432',
-    'postgres',
+    'mydatabase',
     'users',
     'postgres',
     'mysecretpassword'
 );
+
 ```
 
 ### Why `postgres:5432` instead of `localhost:5432`?
